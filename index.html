@@ -49,8 +49,6 @@ html[dir=rtl] h1{letter-spacing:0}
 .row.one{width:min(calc(100% - 2*var(--pad)),520px,calc(100svh*var(--r)))}
 .row.pair{width:min(calc(100% - 2*var(--pad)),1180px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.5vw,32px);align-items:center}
 #gal [data-i]{cursor:zoom-in}
-
-/* Clean Adam Ferguson style homepage feed without text or hover text */
 .feed{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(40px,6vw,80px);align-items:start}
 .hf{display:block;grid-column:span 6;width:100%;cursor:default;}
 .hf:nth-child(3n+1){grid-column:span 12;max-width:calc(100svh*var(--r, 1.5));margin-inline:auto}
@@ -63,17 +61,14 @@ html[dir=rtl] h1{letter-spacing:0}
   .hf:nth-child(5n+4){grid-column:3/9}
   .hf:nth-child(5n+5){grid-column:8/12}
 }
-
 .im{display:block;position:relative;overflow:hidden}
 .hf .im img{transition:transform .8s cubic-bezier(.2,.6,.2,1),opacity .4s}
 .tile img{object-fit:cover}
 .tile:hover .cap b{color:var(--mute)}
-
 @media (hover:hover){
 .hf:hover .im img{transform:scale(1.015)}
 }
 @media (max-width:700px){.feed{display:flex;flex-direction:column;gap:48px}.hf{grid-column:auto!important;width:100%!important}}
-
 .tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(48px,7vw,96px) clamp(20px,3vw,40px)}
 @media (max-width:700px){.tiles{grid-template-columns:1fr}}
 .tile{display:block}
@@ -110,99 +105,3 @@ footer a:hover{color:var(--ink)}
 <span id="ft"></span>
 <div><a href="https://www.instagram.com/daniel_rolider/">Instagram</a><a href="https://www.facebook.com/daniel.rolider.3">Facebook</a></div>
 </footer>
-<script>
-var IMG={},TS=[];
-var SM='<a href="https://www.smithsonianmag.com/history/when-did-humans-start-settling-down-180982328/">';
-var L={
-en:{lang:"en",dir:"ltr",logo:"Daniel Rolider",home:"Home",lt:"Long-Term Projects",ep:"Editorial & Portraits",nw:"News",about:"About",contact:"Contact",ts:"Tearsheets",menu:"Menu",soon:"Photos will be added here.",ft:"© Daniel Rolider. All rights reserved.",ph:"Photo ",cover:"Cover photo",homep:"Home photo",por:"Portrait",tsl:"Tearsheet ",loc:"Currently based in Israel",sw:"עברית",swl:"Switch to Hebrew",
-bio:"Independent photojournalist from Kiryat Tivon, Israel. His work focuses on the relationship between humans and their environment through social and cultural prisms. He has contributed to publications including the New York Times, the Wall Street Journal and the Smithsonian Magazine, and his work has been exhibited in Israel, the US, China and Europe."},
-he:{lang:"he",dir:"rtl",logo:"דניאל רולידר",home:"בית",lt:"פרויקטים ארוכי טווח",ep:"אדיטוריאל ודיוקנאות",nw:"חדשות",about:"אודות",contact:"יצירת קשר",ts:"פרסומים",menu:"תפריט",soon:"כאן יתווספו תמונות.",ft:"© דניאל רולידר. כל הזכויות שמורות.",ph:"תמונה ",cover:"תמונת כותרת",homep:"תמונת בית",por:"דיוקן",tsl:"פרסום ",loc:"כרגע בישראל",sw:"English",swl:"Switch to English",
-bio:"צלם עיתונות עצמאי מקרית טבעון. עבודתו עוסקת בקשר בין האדם לסביבתו דרך פריזמות חברתיות ותרבותיות. פרסם, בין היתר, ב-New York Times, ב-Wall Street Journal וב-Smithsonian Magazine, ועבודותיו הוצגו בישראל, בארצות הברית, בסין ובאירופה."}
-};
-function g(n,d,o){var a=[];for(var i=0;i<n;i++)a.push(o&&o[i]?o[i]:d);return a}
-var P=[
-{t:["Shikun Ella","שיכון אלה"],s:["An ongoing portrait of family and friends in the rural Shikun-Ella neighborhood on the edge of Kiryat Tivon, photographed since 2012.","פורטרט מתמשך של המשפחה והחברים בשכונה הכפרית שיכון אלה בקצה קרית טבעון, מצולם מאז 2012."],r:g(22,1.5,{7:1.33,11:1.33,15:1.33,19:1.33})},
-{t:["Vine","גפן"],s:["A three-year project about the farmers of Lanzarote, who grow grapevines in pits dug into volcanic ash, and about how tourism and modernization threaten their way of life.","פרויקט בן שלוש שנים על חקלאי לנסרוטה, שמגדלים גפנים בבורות שנחפרו באפר געשי, ועל האיום שתיירות ומודרניזציה מציבות על דרך חייהם."],r:g(25,1.5)},
-{t:["When Did Humans Start Settling Down?","מתי האדם התחיל להתיישב?"],s:["Photographed on assignment for the Smithsonian Magazine, with text by Matti Friedman, about an archaeological dig at a 12,000-year-old village near the Sea of Galilee. "+SM+"Read it at Smithsonian Magazine</a>.","צולם במסגרת עבודה עבור Smithsonian Magazine, עם טקסט של מתי פרידמן, על חפירה ארכאולוגית בכפר בן 12,000 שנה ליד הכינרת. "+SM+"לקריאה ב-Smithsonian Magazine</a>."],r:g(25,1.5,{1:.67})},
-{t:["In Hadar Going Nowhere","בהדר, בדרך לשום מקום"],s:["Photographs and written words from Eritrean asylum seekers living in Haifa’s Hadar neighborhood, in legal limbo and without basic rights. This project was supported by the Haifa Museum of Art.","תצלומים ודברים כתובים של מבקשי מקלט אריתראים בשכונת הדר בחיפה, החיים בלימבו משפטי וללא זכויות בסיסיות. הפרויקט נתמך על ידי מוזיאון חיפה לאמנות."],r:g(22,1.07)},
-{t:["Keepers of the Baha’i Gardens","שומרי גני הבהאים"],s:["A work in progress about the mostly volunteer gardeners who maintain the Baha’i Gardens on Mount Carmel in Haifa.","עבודה בהתהוות על הגננים, ברובם מתנדבים, המטפחים את גני הבהאים בהר הכרמל בחיפה."],r:g(22,1.5,{6:1.33,14:1.33})},
-{t:["Balfour of Hope and Despair","בלפור של תקווה וייאוש"],s:["The weekly protest wave against Prime Minister Benjamin Netanyahu, from June 2020 to March 2021, centered on Balfour Street in Jerusalem.","גל ההפגנות השבועי נגד ראש הממשלה בנימין נתניהו, מיוני 2020 עד מרץ 2021, שמרכזו ברחוב בלפור בירושלים."],r:g(25,1.5,{4:1.33,5:1.33,7:1.33,9:1.33,11:1.33,18:1.33,20:1.33})},
-{t:["Ballad for the Carriage Horse","בלדה לסוס העגלה"],s:["A long-term project about the carriage horses of New York City and their drivers, among them Ariel Fintzi, the last Israeli driver.","פרויקט ארוך טווח על סוסי העגלה של ניו יורק ועל העגלונים שלהם, ובהם אריאל פינצי, העגלון הישראלי האחרון."],r:g(18,1.5,{3:.67,6:.67})},
-{t:["A Piece of Sky Remains","פיסת שמיים נשארה"],s:["Daily walks in the fields around Kiryat Tivon during the 2020 Covid-19 lockdown. The people photographed added their own writing and drawing.","טיולים יומיים בשדות סביב קרית טבעון בזמן הסגר של 2020. האנשים שצולמו הוסיפו כתיבה וציור משלהם."],r:g(24,1.33,{4:1.5,11:1.5,16:1.5})},
-{t:["InsideOut – Tivon/Basmat","אינסייד אאוט – טבעון/בסמת"],s:["An art project of 56 portraits of people from the neighboring Jewish and Arab towns of Kiryat Tivon and Basmat Tivon, printed and pasted in public spaces.","פרויקט אמנות של 56 דיוקנאות של תושבי קרית טבעון ובסמת טבעון, ערים שכנות יהודית וערבית, שהודפסו והודבקו במרחב הציבורי."],r:[.67,.67,1.5,.67,.67,1.5,1.5,.67,.67,1.5]}
-];
-var T=[1.44,.56,.73,.68,.65,.64,.56,.63,2.16,1.99,1,1,1.95,1.5,1.5,1.5,.58,1.02,1.5,1.64,1.5,1.5,1.5,1.5];
-var M=[["Kiryat Tivon, Israel","קרית טבעון, ישראל","Since 2012","מאז 2012"],["Lanzarote, Spain","לנסרוטה, ספרד","",""],["Sea of Galilee, Israel","הכינרת, ישראל","",""],["Haifa, Israel","חיפה, ישראל","",""],["Haifa, Israel","חיפה, ישראל","",""],["Jerusalem, Israel","ירושלים, ישראל","2020–2021","2020–2021"],["New York, USA","ניו יורק, ארה״ב","",""],["Kiryat Tivon, Israel","קרית טבעון, ישראל","2020","2020"],["Kiryat Tivon & Basmat Tivon, Israel","קרית טבעון ובסמת טבעון, ישראל","",""]];
-var lang="en";
-try{var sv=localStorage.getItem("lang");if(sv==="he"||sv==="en")lang=sv;else if((navigator.language||"").slice(0,2)==="he")lang="he"}catch(e){}
-var view=document.getElementById("view"),nav=document.getElementById("nav"),lg=document.getElementById("lg");
-function pic(it,r,label){
-if(it&&it.u){return '<figure class="pic"><img alt="'+(it.alt||"")+'" width="'+it.w+'" height="'+it.h+'" loading="lazy" decoding="async" src="'+it.u[it.u.length-1][0]+'" srcset="'+it.u.map(function(x){return x[0]+" "+x[1]+"w"}).join(", ")+'" sizes="100vw"></figure>'}
-return '<div class="ph" style="aspect-ratio:'+r+'">'+label+'</div>'}
-function tilePic(f,C,r,sz,nat){
-if(f&&f.u){return '<img alt="'+(f.alt||"")+'"'+(nat?' width="'+f.w+'" height="'+f.h+'"':' style="aspect-ratio:'+r+'"')+' loading="lazy" decoding="async" src="'+f.u[f.u.length-1][0]+'" srcset="'+f.u.map(function(x){return x[0]+" "+x[1]+"w"}).join(", ")+'" sizes="'+sz+'">'}
-return '<div class="ph" style="aspect-ratio:'+r+'">'+C.ph+'1</div>'}
-function metaH(k,i){var m=M[k],y=m[2+i];return '<span class="meta"><span>'+m[i]+'</span>'+(y?'<span>'+y+'</span>':'')+'</span>'}
-function gallery(rs,get,lab){
-var o="",k=0,n=rs.length;
-while(k<n){var r=rs[k];
-if(r<1.15){
-if(k+1<n&&rs[k+1]<1.15){o+='<div class="row pair">'+pic(get(k),r,lab(k))+pic(get(k+1),rs[k+1],lab(k+1))+'</div>';k+=2}
-else{o+='<div class="row one" style="--r:'+r+'">'+pic(get(k),r,lab(k))+'</div>';k++}
-}else if(r<1.4){o+='<div class="row mid" style="--r:'+r+'">'+pic(get(k),r,lab(k))+'</div>';k++}
-else{o+='<div class="row full" style="--r:'+r+'">'+pic(get(k),r,lab(k))+'</div>';k++}
-}
-return o}
-function route(){
-var C=L[lang],he=lang==="he",i=he?1:0,h=location.hash.replace("#","")||"home",t=C.logo,html="",cur=h;
-document.documentElement.lang=C.lang;document.documentElement.dir=C.dir;
-if(h.charAt(0)==="p"&&P[+h.slice(1)]){
-var n=+h.slice(1),p=P[n];t=p.t[i]+" | "+C.logo;cur="projects";
-html='<p class="meta back"><a href="#projects">'+(he?"\u2192 ":"\u2190 ")+C.lt+'</a></p>'+metaH(n,i)+'<h1>'+p.t[i]+'</h1><p class="intro">'+p.s[i]+'</p><div class="gal bleed" id="gal">'+gallery(p.r,function(k){return IMG[n]&&IMG[n][k]},function(k){return C.ph+(k+1)})+'</div>';
-}else if(h==="projects"){
-t=C.lt+" | "+C.logo;
-html='<h1>'+C.lt+'</h1><div class="tiles" style="margin-top:clamp(32px,5vw,64px)">'+P.map(function(p,k){return '<a class="tile" href="#p'+k+'">'+tilePic(IMG[k]&&IMG[k][0],C,"3/2","(max-width:700px) 100vw, 50vw")+'<span class="cap"><b>'+p.t[i]+'</b>'+metaH(k,i)+'</span></a>'}).join("")+'</div>';
-}else if(h==="editorial"||h==="news"){
-var nm=h==="news"?C.nw:C.ep;t=nm+" | "+C.logo;
-html='<h1>'+nm+'</h1><p class="intro">'+C.soon+'</p>';
-}else if(h==="tearsheets"){
-t=C.ts+" | "+C.logo;
-html='<div class="cols" id="gal">'+T.map(function(r,k){return pic(TS[k],r,C.tsl+(k+1))}).join("")+'</div>';
-}else if(h==="about"){
-t=C.about+" | "+C.logo;
-html='<div class="about"><div><h1>'+C.about+'</h1><p class="intro">'+C.bio+'</p></div>'+pic(null,"214/212",C.por)+'</div>';
-}else if(h==="contact"){
-t=C.contact+" | "+C.logo;
-var lb=he?["אימייל","טלפון","מיקום"]:["Email","Phone","Based in"];
-html='<h1>'+C.contact+'</h1><div class="ct"><div><span class="meta">'+lb[0]+'</span><a href="mailto:daniel12rolider@gmail.com">daniel12rolider@gmail.com</a></div><div><span class="meta">'+lb[1]+'</span><span dir="ltr">+972-53-521-2201</span></div><div><span class="meta">'+lb[2]+'</span>'+(he?"ישראל":"Israel")+'</div></div>';
-}else{
-cur="home";
-html='<div class="feed">'+P.map(function(p,k){var r=p.r[0],f=IMG[k]&&IMG[k][0];return '<div class="hf" style="--r:'+(f&&f.w?f.w/f.h:r)+'"><span class="im">'+tilePic(f,C,r,"(max-width:700px) 100vw, 70vw",1)+'</span></div>'}).join("")+'</div>';
-}
-view.innerHTML=html;document.title=t;var ga=document.getElementById("gal");if(ga)[].forEach.call(ga.querySelectorAll(".pic,.ph"),function(c,k){c.dataset.i=k});
-document.getElementById("logo").textContent=C.logo;document.getElementById("ft").textContent=C.ft;
-lg.textContent=C.sw;lg.setAttribute("aria-label",C.swl);
-var mb=document.getElementById("mb"),mn=document.getElementById("mn");mb.textContent=C.menu;mn.classList.remove("show");mb.setAttribute("aria-expanded","false");
-nav.innerHTML=[["home",C.home],["projects",C.lt],["editorial",C.ep],["news",C.nw],["tearsheets",C.ts],["about",C.about],["contact",C.contact]].map(function(x){return '<li><a href="#'+x[0]+'"'+(cur===x[0]?' aria-current="page"':'')+'>'+x[1]+'</a></li>'}).join("");
-}
-document.getElementById("mb").onclick=function(){var o=document.getElementById("mn").classList.toggle("show");this.setAttribute("aria-expanded",o)};
-function keep(){var y=window.scrollY;route();window.scrollTo(0,y)}
-lg.onclick=function(){lang=lang==="he"?"en":"he";try{localStorage.setItem("lang",lang)}catch(e){}keep()};
-document.addEventListener("click",function(){var pf=document.getElementById("pf");if(pf)pf.classList.remove("open")});
-window.addEventListener("hashchange",function(){closeV();route();window.scrollTo(0,0)});
-var LB={en:["Close","Previous","Next"],he:["סגירה","הקודם","הבא"]};
-var vw=document.createElement("div");vw.id="vw";vw.hidden=true;vw.innerHTML='<button type="button" id="vx"></button><button type="button" id="vp"></button><button type="button" id="vn"></button><div id="vc"></div>';document.body.appendChild(vw);
-var cur=0,items=[],vc=document.getElementById("vc");
-function show(k){cur=k;var el=items[k],img=el.querySelector("img");vc.innerHTML="";if(img){var m=img.cloneNode();m.removeAttribute("loading");m.removeAttribute("style");m.setAttribute("sizes","100vw");vc.appendChild(m)}else{var d=el.cloneNode(true);d.style.cursor="default";d.style.width="min(100vw,calc(100svh*"+el.style.aspectRatio+"))";vc.appendChild(d)}}
-function openV(k){items=[].slice.call(document.querySelectorAll("#gal [data-i]"));var b=LB[lang],rt=lang==="he";var x=document.getElementById("vx"),p=document.getElementById("vp"),n=document.getElementById("vn");x.textContent="\u2715";x.setAttribute("aria-label",b[0]);p.textContent=rt?"\u203A":"\u2039";n.textContent=rt?"\u2039":"\u203A";p.setAttribute("aria-label",b[1]);n.setAttribute("aria-label",b[2]);show(k);vw.hidden=false;document.body.style.overflow="hidden";try{if(vw.requestFullscreen)vw.requestFullscreen().catch(function(){})}catch(e){}}
-function closeV(){if(vw.hidden)return;vw.hidden=true;document.body.style.overflow="";if(document.fullscreenElement)document.exitFullscreen().catch(function(){})}
-function step(d){show((cur+d+items.length)%items.length)}
-document.getElementById("vx").onclick=closeV;document.getElementById("vp").onclick=function(){step(-1)};document.getElementById("vn").onclick=function(){step(1)};
-view.addEventListener("click",function(e){var el=e.target.closest("#gal [data-i]");if(el&&el.dataset.i!==undefined)openV(+el.dataset.i)});
-document.addEventListener("keydown",function(e){if(vw.hidden)return;var rt=lang==="he";if(e.key==="Escape")closeV();else if(e.key==="ArrowRight")step(rt?-1:1);else if(e.key==="ArrowLeft")step(rt?1:-1)});
-document.addEventListener("fullscreenchange",function(){if(!document.fullscreenElement)closeV()});
-var tx=0;vw.addEventListener("touchstart",function(e){tx=e.touches[0].clientX},{passive:true});vw.addEventListener("touchend",function(e){var d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)step((d<0?1:-1)*(lang==="he"?-1:1))});
-route();
-</script>
-</body>
-</html>
